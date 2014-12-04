@@ -12,6 +12,9 @@ VENDOR=moto
 DEVICE=shamu
 OUTDIR=vendor/$VENDOR/$DEVICE
 
+#APK packages
+declare -a apks=("ConfigUpdater" "DMAgent")
+
 # VTREE means "vendor tree" this is for
 VTREE=$SOURCE/$OUTDIR
 mkdir -p $VTREE
@@ -43,6 +46,13 @@ for FILE in `cat $SOURCE/proprietary-blobs.txt | grep -v ^# | grep -v ^$ | sed -
 
     if [ -d $system_img ]; then
       cp $system_img/$FILE $BASE/$FILE
+
+        #grab odex files for APKs
+        for j in "${apks[@]}"
+        do
+          cp -R $system_img/app/${j}/arm $BASE/app/${j}
+        done
+
     elif [ "$SRC" = "adb" ]; then
       adb pull /system/$FILE $BASE/$FILE
     else
