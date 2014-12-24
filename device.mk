@@ -21,7 +21,7 @@
 
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/moto/shamu-kernel/zImage-dtb
+LOCAL_KERNEL := device/motorola/shamu-kernel/zImage-dtb
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -31,28 +31,28 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/init.shamu.rc:root/init.shamu.rc \
-    device/moto/shamu/init.shamu.power.rc:root/init.shamu.power.rc \
-    device/moto/shamu/init.shamu.usb.rc:root/init.shamu.usb.rc \
-    device/moto/shamu/fstab.shamu:root/fstab.shamu \
-    device/moto/shamu/ueventd.shamu.rc:root/ueventd.shamu.rc
+    device/motorola/shamu/init.shamu.rc:root/init.shamu.rc \
+    device/motorola/shamu/init.shamu.power.rc:root/init.shamu.power.rc \
+    device/motorola/shamu/init.shamu.usb.rc:root/init.shamu.usb.rc \
+    device/motorola/shamu/fstab.shamu:root/fstab.shamu \
+    device/motorola/shamu/ueventd.shamu.rc:root/ueventd.shamu.rc
 
 # Input device files for shamu
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/moto/shamu/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl:system/usr/keylayout/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl \
-	device/moto/shamu/atmel_mxt_ts.idc:system/usr/idc/atmel_mxt_ts.idc
+    device/motorola/shamu/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/motorola/shamu/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl:system/usr/keylayout/apq8084-taiko-tfa9890_stereo_co_Button_Jack.kl \
+    device/motorola/shamu/atmel_mxt_ts.idc:system/usr/idc/atmel_mxt_ts.idc
 
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/audio_policy.conf:system/etc/audio_policy.conf \
-    device/moto/shamu/audio_effects.conf:system/etc/audio_effects.conf
+    device/motorola/shamu/audio_policy.conf:system/etc/audio_policy.conf \
+    device/motorola/shamu/audio_effects.conf:system/etc/audio_effects.conf
 
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/media_profiles.xml:system/etc/media_profiles.xml \
-    device/moto/shamu/media_codecs.xml:system/etc/media_codecs.xml
+    device/motorola/shamu/media_profiles.xml:system/etc/media_profiles.xml \
+    device/motorola/shamu/media_codecs.xml:system/etc/media_codecs.xml
 
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/motorola/shamu/mixer_paths.xml:system/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -85,7 +85,7 @@ PRODUCT_COPY_FILES += \
 
 # For GPS
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/sec_config:system/etc/sec_config
+    device/motorola/shamu/sec_config:system/etc/sec_config
 
 # Touch firmware updater
 PRODUCT_COPY_FILES += \
@@ -96,11 +96,11 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4356
 
 # WiFi cal NVRAM file
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+    device/motorola/shamu/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
 # For SPN display
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/spn-conf.xml:system/etc/spn-conf.xml
+    device/motorola/shamu/spn-conf.xml:system/etc/spn-conf.xml
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -114,7 +114,7 @@ PRODUCT_AAPT_PREF_CONFIG := 560dpi
 PRODUCT_CHARACTERISTICS := nosdcard
 
 DEVICE_PACKAGE_OVERLAYS := \
-    device/moto/shamu/overlay
+    device/motorola/shamu/overlay
 
 PRODUCT_PACKAGES := \
     libwpa_client \
@@ -249,7 +249,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/gps.conf:system/etc/gps.conf
+    device/motorola/shamu/gps.conf:system/etc/gps.conf
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -277,8 +277,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
-    device/moto/shamu/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    device/moto/shamu/nfc/libnfc-brcm-20795a10.conf:system/etc/libnfc-brcm-20795a10.conf
+    device/motorola/shamu/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+    device/motorola/shamu/nfc/libnfc-brcm-20795a10.conf:system/etc/libnfc-brcm-20795a10.conf
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
@@ -293,10 +293,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.qc.sub.rdump.on=0
 
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/init.shamu.diag.rc.userdebug:root/init.shamu.diag.rc
+    device/motorola/shamu/init.shamu.diag.rc.userdebug:root/init.shamu.diag.rc
 else
 PRODUCT_COPY_FILES += \
-    device/moto/shamu/init.shamu.diag.rc.user:root/init.shamu.diag.rc
+    device/motorola/shamu/init.shamu.diag.rc.user:root/init.shamu.diag.rc
 endif
 
 # Enable for volte call

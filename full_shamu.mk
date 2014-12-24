@@ -30,5 +30,5 @@ PRODUCT_MODEL := AOSP on Shamu
 PRODUCT_MANUFACTURER := motorola
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
-$(call inherit-product, device/moto/shamu/device.mk)
-$(call inherit-product-if-exists, vendor/moto/shamu/shamu-vendor.mk)
+$(call inherit-product, device/motorola/shamu/device.mk)
+$(call inherit-product-if-exists, vendor/motorola/shamu/shamu-vendor.mk)
