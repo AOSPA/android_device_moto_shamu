@@ -43,20 +43,8 @@
     },
     {
         "remote":       "aosp",
-        "repository":   "platform/hardware/qcom/msm8960",
-        "target_path":  "hardware/qcom/msm8960",
-        "revision":     "refs/tags/android-5.0.2_r1"
-    },
-    {
-        "remote":       "aosp",
         "repository":   "platform/hardware/qcom/power",
         "target_path":  "hardware/qcom/power",
-        "revision":     "refs/tags/android-5.0.2_r1"
-    },
-    {
-        "remote":       "aosp",
-        "repository":   "platform/hardware/qcom/sensors",
-        "target_path":  "hardware/qcom/sensors",
         "revision":     "refs/tags/android-5.0.2_r1"
     },
     {
