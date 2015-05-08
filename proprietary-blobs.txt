@@ -1,4 +1,4 @@
-# Copyright (C) 2014 The Android Open Source Project
+m# Copyright (C) 2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,26 +20,45 @@
 /system/bin/bridgemgrd
 /system/bin/diag_klog
 /system/bin/diag_mdlog
+/system/bin/diag_qshrink4_daemon
 /system/bin/irsc_util
 /system/bin/ks
 /system/bin/mdm_helper
 /system/bin/mm-qcamera-daemon
 /system/bin/mpdecision
 /system/bin/netmgrd
+/system/bin/PktRspTest
 /system/bin/port-bridge
+/system/bin/qmi-framework-tests/qmi_ping_clnt_test_0000
+/system/bin/qmi-framework-tests/qmi_ping_clnt_test_0001
+/system/bin/qmi-framework-tests/qmi_ping_clnt_test_1000
+/system/bin/qmi-framework-tests/qmi_ping_clnt_test_1001
+/system/bin/qmi-framework-tests/qmi_ping_clnt_test_2000
+/system/bin/qmi-framework-tests/qmi_ping_svc
+/system/bin/qmi-framework-tests/qmi_ping_test
+/system/bin/qmi-framework-tests/qmi_test_service_clnt_test_0000
+/system/bin/qmi-framework-tests/qmi_test_service_clnt_test_0001
+/system/bin/qmi-framework-tests/qmi_test_service_clnt_test_1000
+/system/bin/qmi-framework-tests/qmi_test_service_clnt_test_1001
+/system/bin/qmi-framework-tests/qmi_test_service_clnt_test_2000
+/system/bin/qmi-framework-tests/qmi_test_service_test
 /system/bin/qmi_motext_hook
+/system/bin/qmi_simple_ril_test
 /system/bin/qmuxd
 /system/bin/qseecomd
 /system/bin/radish
+/system/bin/ramdump
+/system/bin/rundiag
 /system/bin/sensors.qcom
 /system/bin/tcmd_mini
+/system/bin/test_diag
 /system/bin/thermal-engine
 /system/bin/time_daemon
 /system/bin/usbhub
 /system/bin/usbhub_init
 /system/etc/Bluetooth_cal.acdb
-/system/etc/diag/FIT_V12.cfg
-/system/etc/diag/mdm/FIT_V12.cfg
+/system/etc/diag/mdm/FIT_V15_audio.cfg
+/system/etc/diag/mdm/FIT_V15.cfg
 /system/etc/diag/mdm/sensors_qxdm.cfg
 /system/etc/diag/sensors_qxdm.cfg
 /system/etc/firmware/cpp_firmware_v1_1_1.fw
@@ -69,6 +88,7 @@
 /system/etc/Hdmi_cal.acdb
 /system/etc/Headset_cal.acdb
 /system/etc/permissions/org.simalliance.openmobileapi.xml
+/system/etc/qmi_fw.conf
 /system/etc/sap.conf
 /system/etc/sensors/sensor_def_qcomdev.conf
 /system/etc/Speaker_cal.acdb
@@ -94,6 +114,7 @@
 /system/lib/soundfx/libqcomvisualizer.so
 /system/lib/soundfx/libqcomvoiceprocessing.so
 /system/lib/soundfx/libspeakerbundle.so
+/system/priv-app/BuaContactAdapter/BuaContactAdapter.apk
 /system/vendor/bin/gsiff_daemon
 /system/vendor/etc/audio_effects.conf
 /system/vendor/firmware/a420_pfp.fw
@@ -311,6 +332,7 @@
 /system/vendor/lib/liboemcamera.so
 /system/vendor/lib/liboemcrypto.so
 /system/vendor/lib/libois_lc898122.so
+/system/vendor/lib/libqcci_legacy.so
 /system/vendor/lib/libqdi.so
 /system/vendor/lib/libqdp.so
 /system/vendor/lib/libqmi_cci.so
@@ -391,3 +413,4 @@
 /system/vendor/moto/audiomonitor/sensory/svsid_triggerogn_enus_3_1.raw
 /system/vendor/moto/audiomonitor/sensory/svsid_triggerogn_frfr_1_0.raw
 /system/vendor/moto/audiomonitor/sensory/svsid_triggerogn_ptbr_2_1.raw
+/system/xbin/wlutil

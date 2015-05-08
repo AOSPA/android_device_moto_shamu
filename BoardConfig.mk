@@ -16,6 +16,7 @@
 
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
@@ -27,7 +28,7 @@ BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 vmalloc=340M androidboot.console=ttyHSL0 androidboot.hardware=shamu msm_rtb.filter=0x37 ehci-hcd.park=3 utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags utags.backup=/dev/block/platform/msm_sdcc.1/by-name/utagsBackup coherent_pool=8M
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=shamu msm_rtb.filter=0x37 ehci-hcd.park=3 utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags utags.backup=/dev/block/platform/msm_sdcc.1/by-name/utagsBackup coherent_pool=8M
 
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset BOARD_RAMDISK_OFFSET --tags_offset BOARD_KERNEL_TAGS_OFFSET
 
@@ -41,7 +42,11 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 # of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
 
-BOARD_EGL_CFG := device/motorola/shamu/egl.cfg
+# Maximum dimension (width or height) of a virtual display that will be
+# handled by the hardware composer
+MAX_VIRTUAL_DISPLAY_DIMENSION := 2048
+
+BOARD_EGL_CFG := device/moto/shamu/egl.cfg
 
 BOARD_USES_ALSA_AUDIO := true
 
@@ -60,19 +65,21 @@ WIFI_BUS := PCIE
 
 #Bluetooth defines
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/shamu/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/moto/shamu/bluetooth
 
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := msm8084
 TARGET_BOOTLOADER_BOARD_NAME := shamu
 TARGET_NO_RPC := true
 
-TARGET_BOARD_INFO_FILE := device/motorola/shamu/board-info.txt
+TARGET_BOARD_INFO_FILE := device/moto/shamu/board-info.txt
 
 USE_OPENGL_RENDERER := true
 VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
 TARGET_USES_ION := true
+TARGET_HW_DISK_ENCRYPTION := false
+TARGET_CRYPTFS_HW_PATH := device/moto/shamu/cryptfs_hw
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
@@ -96,18 +103,19 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-TARGET_RECOVERY_FSTAB = device/motorola/shamu/fstab.shamu
+TARGET_RECOVERY_FSTAB = device/moto/shamu/fstab.shamu
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/shamu
+TARGET_RELEASETOOLS_EXTENSIONS := device/moto/shamu
 
 # Support Native Layer RF cutback
 BOARD_USES_CUTBACK_IN_RILD := true
 
 BOARD_SEPOLICY_DIRS += \
-       device/motorola/shamu/sepolicy
+       device/moto/shamu/sepolicy
 
 BOARD_SEPOLICY_UNION += \
         adspd.te \
+        atfwd.te \
         bluetooth.te \
         bluetooth_loader.te \
         bootanim.te \
@@ -117,6 +125,7 @@ BOARD_SEPOLICY_UNION += \
         domain.te \
         file.te \
         gsiffd.te \
+        ims.te \
         irsc_util.te \
         mdm_helper.te \
         mediaserver.te \
@@ -124,10 +133,13 @@ BOARD_SEPOLICY_UNION += \
         netd.te \
         netmgrd.te \
         platform_app.te \
+        property.te \
+        property_contexts \
         qmux.te \
         radio.te \
         rild.te \
         sensors.te \
+        service.te \
         ss_ramdump.te \
         surfaceflinger.te \
         system_app.te \
@@ -162,3 +174,5 @@ EXTENDED_FONT_FOOTPRINT := true
 
 # Enable workaround for slow rom flash
 BOARD_SUPPRESS_SECURE_ERASE := true
+
+-include vendor/moto/shamu/BoardConfigVendor.mk
