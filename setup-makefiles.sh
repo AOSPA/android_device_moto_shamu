@@ -2,7 +2,7 @@
 
 host=`whoami`
 SOURCE=$(pwd)
-BASE=$SOURCE/motorola/shamu
+BASE=$SOURCE/moto/shamu
 VENDOR=motorola
 DEVICE=shamu
 OUTDIR=$VENDOR/$DEVICE
