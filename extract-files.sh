@@ -18,6 +18,28 @@ fi
 
 set -e
 
+oat2dex()
+{
+    OFILE="$1"
+
+    OAT="`dirname $OFILE`/arm/`basename $OFILE ."${OFILE##*.}"`.odex"
+    if [ ! -e $OAT ]; then
+        return 0
+    fi
+
+    HIT=`r2 -q -c '/ dex\n035' "$OAT" 2>/dev/null | grep hit0_0 | awk '{print $1}'`
+    if [ -z "$HIT" ]; then
+        echo "ERROR: Can't find dex header of `basename $OFILE`"
+        return 1
+    fi
+
+    SIZE=`r2 -e scr.color=false -q -c "px 4 @$HIT+32" $OAT 2>/dev/null | tail -n 1 | awk '{print $2 $3}' | sed -e "s/^/0x/" | rax2 -e`
+    r2 -q -c "pr $SIZE @$HIT > /tmp/classes.dex" "$OAT" 2>/dev/null
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Something went wrong in `basename $OFILE`"
+    fi
+}
+
 function extract() {
     for FILE in `egrep -v '(^#|^$)' $1`; do
         echo "Extracting /system/$FILE ..."
@@ -40,17 +62,27 @@ function extract() {
                 #if [ "$?" != "0" ]; then
                     cp $system_img/$FILE $2/$DEST
                 #fi
+                if [ "${FILE##*.}" = "apk" ] || [ "${FILE##*.}" = "jar" ]; then
+                    oat2dex $system_img/$FILE
+                fi
             fi
         else
             # Try destination target first
             if [ -f $COPY_FROM/$DEST ]; then
                 cp $COPY_FROM/$DEST $2/$DEST
+                if [ "${FILE##*.}" = "apk" ] || [ "${FILE##*.}" = "jar" ]; then
+                    oat2dex $COPY_FROM/$DEST
+                fi
             else
                 # if file does not exist try OEM target
                 if [ "$?" != "0" ]; then
                     cp $COPY_FROM/$FILE $2/$DEST
                 fi
             fi
+        fi
+        if [ -e /tmp/classes.dex ]; then
+            zip -gjq $2/$DEST /tmp/classes.dex
+            rm /tmp/classes.dex
         fi
     done
 }
