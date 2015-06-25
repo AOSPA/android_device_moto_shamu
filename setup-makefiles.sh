@@ -3,7 +3,7 @@
 host=`whoami`
 SOURCE=$(pwd)
 BASE=$SOURCE/moto/shamu
-VENDOR=motorola
+VENDOR=moto
 DEVICE=shamu
 OUTDIR=$VENDOR/$DEVICE
 MAKEFILE=$SOURCE/$OUTDIR/$DEVICE-vendor-blobs.mk

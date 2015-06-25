@@ -29,11 +29,16 @@ etc/Headset_cal.acdb
 etc/Speaker_cal.acdb
 etc/fmas_eq.dat
 lib/hw/audio.motvr.default.so
+lib/hw/audio.primary.msm8084.so
 lib/hw/sound_trigger.primary.shamu.so
+lib/libaudioroute.so
 lib/libflacencoder.so
 lib/libmotaudioutils.so
+lib/libtinycompress.so
 lib/soundfx/libfmas.so
+lib/soundfx/libqcomvisualizer.so
 lib/soundfx/libspeakerbundle.so
+lib/soundfx/libqcomvoiceprocessing.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
@@ -104,6 +109,7 @@ vendor/moto/audiomonitor/sensory/svsid_triggerogn_ptbr_2_1.raw
 
 # Camera
 bin/mm-qcamera-daemon
+lib/libmm-qcamera.so
 vendor/lib/libactuator_lc898122_camcorder.so
 vendor/lib/libactuator_lc898122_camera.so
 vendor/lib/libactuator_lc898122.so
@@ -231,9 +237,13 @@ etc/firmware/cpp_firmware_v1_8_0.fw
 # Diagnostic
 bin/diag_klog
 bin/diag_mdlog
-etc/diag/mdm/FIT_V15_audio.cfg
-etc/diag/mdm/FIT_V15.cfg
+etc/diag/mdm/audio_voice_apr.cfg
+etc/diag/mdm/Connection_Issues_V6+DPL+UIM.cfg
+etc/diag/mdm/FIT_V16_1.cfg
+etc/diag/mdm/FIT_V16_2_volte_full_ip.cfg
+etc/diag/mdm/FIT_V16_3_audio.cfg
 etc/diag/mdm/sensors_qxdm.cfg
+etc/diag/mdm/voice-call-min-log.cfg
 etc/diag/sensors_qxdm.cfg
 
 # DRM
@@ -456,3 +466,7 @@ vendor/firmware/aonvr2.bin
 # WiFi
 vendor/firmware/bcm20795_firmware.ncd
 vendor/firmware/bcm4354A2.hcd
+
+# Other APK
+# app/DMConfigUpdate/DMConfigUpdate.apk
+priv-app/SprintDM/SprintDM.apk
