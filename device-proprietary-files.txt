@@ -467,6 +467,20 @@ vendor/firmware/aonvr2.bin
 vendor/firmware/bcm20795_firmware.ncd
 vendor/firmware/bcm4354A2.hcd
 
-# Other APK
-# app/DMConfigUpdate/DMConfigUpdate.apk
-priv-app/SprintDM/SprintDM.apk
+# Other
+bin/cnd
+vendor/lib/libcneapiclient.so
+vendor/lib/libcne.so
+-app/UiccWatchdog/UiccWatchdog.apk
+-app/VZWAPNLib/VZWAPNLib.apk
+-app/ConfigUpdater/ConfigUpdater.apk
+-app/DMAgent/DMAgent.apk
+-app/DMConfigUpdate/DMConfigUpdate.apk
+-app/HiddenMenu/HiddenMenu.apk
+-priv-app/SprintDM/SprintDM.apk
+-priv-app/CNEService/CNEService.apk
+-priv-app/ConnMO/ConnMO.apk
+-priv-app/DCMO/DCMO.apk
+-priv-app/DMService/DMService.apk
+-priv-app/VZWAPNService/VZWAPNService.apk
+-priv-app/LifetimeData/LifetimeData.apk
