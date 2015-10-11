@@ -151,6 +151,7 @@ PRODUCT_PACKAGES += \
     libaudio-resampler
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    media.aac_51_output_enabled=true \
     ro.audio.monitorRotation=true
 
 # Audio effects
@@ -398,7 +399,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set missing telephony props
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.sib16_support=1
+    persist.radio.sib16_support=1 \
+    ro.com.android.prov_mobiledata=false
+
+# data qmi adb logmask
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.qmi.adb_logmask=0
+
+# drmservice props
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true
+
+# facelock props
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.facelock.black_timeout=700 \
+    ro.facelock.det_timeout=2500 \
+    ro.facelock.rec_timeout=3500 \
+    ro.facelock.est_max_time=600
 
 # OEM Unlock reporting
 ADDITIONAL_DEFAULT_PROPERTIES += \
