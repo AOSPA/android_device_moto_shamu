@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export VENDOR=motorola
+export VENDOR=moto
 export DEVICE_VENDOR=moto
 export DEVICE=shamu
 
