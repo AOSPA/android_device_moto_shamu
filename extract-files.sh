@@ -57,12 +57,12 @@ function extract() {
         cp "$COPY_FROM/$SRCFILE" "$OUTBASE/$DESTFILE"
 
         # Fixup xml files
-        if [[ "$OUTBASE/$DESTFILE" =~ .xml$ ]]; then
-            xmlheader=$(grep '^<?xml version' "$OUTBASE/$DESTFILE")
-            grep -v '^<?xml version' "$OUTBASE/$DESTFILE" > "$OUTBASE/$DESTFILE".temp
-            (echo "$xmlheader"; cat "$OUTBASE/$DESTFILE".temp ) > "$OUTBASE/$DESTFILE"
-            rm "$OUTBASE/$DESTFILE".temp
-        fi
+        #if [[ "$OUTBASE/$DESTFILE" =~ .xml$ ]]; then
+        #    xmlheader=$(grep '^<?xml version' "$OUTBASE/$DESTFILE")
+        #    grep -v '^<?xml version' "$OUTBASE/$DESTFILE" > "$OUTBASE/$DESTFILE".temp
+        #    (echo "$xmlheader"; cat "$OUTBASE/$DESTFILE".temp ) > "$OUTBASE/$DESTFILE"
+        #    rm "$OUTBASE/$DESTFILE".temp
+        #fi
         if [[ "$DESTFILE" =~ .(apk|jar)$ ]]; then
             oat2dex "$COPY_FROM/$SRCFILE"
             if [ -e "$TMPDIR/classes.dex" ]; then
