@@ -407,3 +407,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # ro.product.first_api_level indicates the first api level the device has commercially launched on.
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product.first_api_level=21
+
+# RIL
+PRODUCT_PACKAGES += \
+    librmnetctl \
+    libxml2
