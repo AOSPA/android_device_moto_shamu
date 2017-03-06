@@ -51,6 +51,8 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 # Maximum dimension (width or height) of a virtual display that will be
 # handled by the hardware composer
 MAX_VIRTUAL_DISPLAY_DIMENSION := 2048
+VSYNC_EVENT_PHASE_OFFSET_NS := 2000000
+SF_VSYNC_EVENT_PHASE_OFFSET_NS := 6000000
 
 BOARD_EGL_CFG := device/moto/shamu/egl.cfg
 
