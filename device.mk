@@ -330,7 +330,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
-   dalvik.vm.heapgrowthlimit=256m
+   dalvik.vm.heapgrowthlimit=256m \
+   dalvik.vm.heapminfree=2m 
 
 # In userdebug, add minidebug info the the boot image and the system server to support
 # diagnosing native crashes.
